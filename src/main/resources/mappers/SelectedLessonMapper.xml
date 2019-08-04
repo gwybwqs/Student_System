@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE mapper   
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.hxz.stu.dao.student.SelectedLessonMapper">
+
+	<select id="findById" parameterType="int"
+		resultType="com.hxz.stu.domain.manager.Lesson">
+		SELECT * FROM lesson where lid = #{lid}
+	</select>
+
+	<select id="list" parameterType ="int"
+		resultType="com.hxz.stu.domain.manager.Lesson">
+		SELECT lesson.lid,lesson.lname,lesson.tid,lesson.tname,lesson.ltime,lesson.lscore FROM lesson,stuScore where stuScore.sid = #{sid} and stuScore.lid = lesson.lid
+	</select>
+
+	<select id="count" resultType="int">
+		SELECT count(*) FROM lesson
+	</select>
+
+	
+<select id="findScore" parameterType="int"
+		resultType="com.hxz.stu.domain.Stulesson">
+		SELECT lid,lname,lscore FROM stuScore where sid = #{sid}
+	</select>
+
+	<select id="findStulesson" parameterType="int"
+		resultType="com.hxz.stu.domain.Stulesson">
+		SELECT * FROM stuScore where sid = #{sid}
+	</select>
+	
+		<delete id="delete" parameterType="com.hxz.stu.domain.Stulesson">
+		delete from stuScore where sid =#{sid} and lid = #{lid};
+	</delete>
+	
+	<!-- <delete id="mdelete" parameterType="com.hxz.stu.domain.Stulesson">
+		delete from stuScore where sid =#{sid} and lid in 
+		<foreach item="lids" index="index" collection="array" open="(" separator="," close=")">
+       		#{lids}
+  		</foreach>
+	</delete> -->
+	
+</mapper>

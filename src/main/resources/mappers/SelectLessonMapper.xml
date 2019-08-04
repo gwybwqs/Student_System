@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE mapper   
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.hxz.stu.dao.student.SelectLessonMapper">
+
+	<select id="findById" parameterType="int"
+		resultType="com.hxz.stu.domain.manager.Lesson">
+		SELECT * FROM lesson where lid = #{lid}
+	</select>
+
+	<select id="list" parameterType="com.hxz.common.page.PageParam"
+		resultType="com.hxz.stu.domain.manager.Lesson">
+		SELECT lid,lname,tid,tname FROM lesson limit #{offset},
+		#{limit}
+	</select>
+
+	<select id="count" resultType="int">
+		SELECT count(*) FROM lesson
+	</select>
+
+	<insert id="save" parameterType="com.hxz.stu.domain.Stulesson">
+		insert into stuScore values
+		(#{sid},#{sname},#{lid},#{lname},#{lscore})
+	</insert>
+
+
+	<select id="findStudent" parameterType="int"
+		resultType="com.hxz.stu.domain.manager.Student">
+		SELECT * FROM studentuser where sid = #{sid}
+	</select>
+	
+	<select id="findStuScore" parameterType="com.hxz.stu.domain.Stulesson"
+		resultType="int">
+		SELECT count(*) FROM stuScore where sid = #{sid} and lid = #{lid}
+	</select>
+</mapper>

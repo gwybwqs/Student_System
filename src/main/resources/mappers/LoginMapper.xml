@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE mapper   
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd"> 
+
+<mapper namespace="com.hxz.stu.dao.LoginMapper">
+	
+	<select id="ManagerCheck" parameterType = "com.hxz.stu.domain.User" resultType="int">
+	  	select count(*) from Manageruser where username = #{username} and password = #{password}
+	</select>
+	<select id="TeacherCheck" parameterType = "com.hxz.stu.domain.manager.Teacher" resultType="int">
+	  	select count(*) from teacheruser where tid = #{tid} and password = #{password}
+	</select>
+	<select id="StudentCheck" parameterType = "com.hxz.stu.domain.manager.Student" resultType="int">
+	  	select count(*) from studentuser where sid = #{sid} and password = #{password}
+	</select>
+	<select id="findStudent" parameterType="int" resultType="com.hxz.stu.domain.manager.Student">
+	  	SELECT * FROM studentuser where sid = #{sid}
+	</select>
+	<select id="findTeacher" parameterType="int" resultType="com.hxz.stu.domain.manager.Teacher">
+	  	SELECT * FROM teacheruser where tid = #{tid}
+	</select>
+	
+</mapper>

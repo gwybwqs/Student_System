@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE mapper   
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd"> 
+
+<mapper namespace="com.hxz.stu.dao.manager.TeacherMapper">
+	
+	
+	<select id="findById" parameterType="int" resultType="com.hxz.stu.domain.manager.Teacher">
+	  	SELECT * FROM teacheruser where tid = #{tid}
+	</select>
+	
+	<select id="list" parameterType="com.hxz.common.page.PageParam"  resultType="com.hxz.stu.domain.manager.Teacher">
+	  	SELECT tid,tname,gender,lesson,phone FROM teacheruser limit #{offset}, #{limit}
+	</select>
+	
+	<select id="count"  resultType="int">
+	  	SELECT count(*) FROM teacheruser
+	</select>
+	
+	<insert id="save" parameterType="com.hxz.stu.domain.manager.Teacher">
+		insert into teacheruser values (#{tid},#{password}, #{tname}, #{gender}, #{lesson}, #{phone})
+	</insert>
+	
+	<update id="update" parameterType="com.hxz.stu.domain.manager.Teacher">
+		update teacheruser set tname = #{tname},password = #{password}, gender = #{gender}, lesson = #{lesson}, phone = #{phone} where tid = #{tid}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from teacheruser where tid = #{tid};
+	</delete>
+	
+	<delete id="mdelete" parameterType="java.util.ArrayList">
+		delete from teacheruser where tid in 
+		<foreach item="tid" index="index" collection="array" open="(" separator="," close=")">
+       		#{tid}
+  		</foreach>
+	</delete>
+	
+</mapper>

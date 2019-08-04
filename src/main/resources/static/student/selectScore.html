@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>成绩查询</title>
+	<link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="../lib/bootstrap-table/css/bootstrap-table.min.css">
+	<link rel="stylesheet" href="../lib/jquery-confirm/css/jquery-confirm.min.css">
+	<link rel="stylesheet" href="../css/student/selectScore.css"/>
+</head>
+<body>
+	<div class="row top">
+		<div class="logo pull-left">
+			<img src="../images/score.png" alt=""/>
+		</div>
+		<div class="info pull-right">
+			<span class="info-username" id="username"></span>
+			<span class="info-username"> | </span>
+			<a href="/Log/logout">退出</a>
+		</div>
+	</div>
+	<div class="panel">
+		<div class="panel-menu">
+			<ul>
+			<li id = "selectLesson">
+					<a href="">选课</a>
+				</li>
+				<li id = "selectedLesson">
+					<a href="">已选课程</a>
+				</li>
+				<li id = "selectScore">
+					<a href="">查询成绩</a>
+				</li>
+			</ul>
+		</div>
+		<div class="panel-content">
+			<table id="Score-table"></table>
+		</div>
+	</div>
+
+
+<script src="../lib/jquery/jquery.min.js"></script>
+<script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="../lib/bootstrap-table/js/bootstrap-table.min.js"></script>
+<script src="../lib/bootstrap-table/js/bootstrap-table-zh-CN.min.js"></script>
+<script src="../lib/jquery-confirm/js/jquery-confirm.min.js"></script>
+<script src="../js/student/selectScore.js"></script>
+</body>
+</html>

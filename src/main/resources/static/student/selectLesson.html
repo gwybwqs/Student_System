@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>学生选课信息管理系统</title>
+	<link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="../lib/bootstrap-table/css/bootstrap-table.min.css">
+	<link rel="stylesheet" href="../lib/jquery-confirm/css/jquery-confirm.min.css">
+	<link rel="stylesheet" href="../css/student/selectlesson.css"/>
+</head>
+<body>
+	<div class="row top">
+		<div class="logo pull-left">
+			<img src="../images/lesson.png" alt=""/>
+		</div>
+		<div class="info pull-right">
+			<span class="info-username" id="username"></span>
+			<span class="info-username"> | </span>
+			<a href="/Log/logout">退出</a>
+		</div>
+	</div>
+	<div class="panel">
+		<div class="panel-menu">
+			<ul>
+				<li id = "selectLesson">
+					<a href="">选课</a>
+				</li>
+				<li id = "selectedLesson">
+					<a href="">已选课程</a>
+				</li>
+				<li id = "selectScore">
+					<a href="">查询成绩</a>
+				</li>
+			</ul>
+		</div>
+		<div class="panel-content">
+			
+			<table id="selectlesson-table"></table>
+			<div id="toolbar">
+				<a id="mselect" class="btn btn-success">选课</a>
+			</div>
+		</div>
+	</div>
+         
+     
+
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">详细课程信息</h4>
+      </div>
+      <div class="modal-body">
+        <form id="form-update">
+        	<input type="hidden" name="lid" id="lid">
+        	<div class="form-group">
+            	<label for="name" class="control-label">名称:</label>
+            	<input type="text" class="form-control" id="lname" name="lname">
+          	</div>
+          	<div class="form-group">
+            	<label for="gender" class="control-label">学时:</label>
+            	<input type="text" class="form-control" id="ltime" name="ltime">
+          	</div>
+          	<div class="form-group">
+            	<label for="gender" class="control-label">学分:</label>
+            	<input type="text" class="form-control" id="lscore" name="lscore">
+          	</div>         	
+		</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<script src="../lib/jquery/jquery.min.js"></script>
+<script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="../lib/bootstrap-table/js/bootstrap-table.min.js"></script>
+<script src="../lib/bootstrap-table/js/bootstrap-table-zh-CN.min.js"></script>
+<script src="../lib/jquery-confirm/js/jquery-confirm.min.js"></script>
+<script src="../js/student/selectlesson.js"></script>
+</body>
+</html>

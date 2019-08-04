@@ -1,0 +1,12 @@
+
+.login {
+	width: 600px;
+	margin: 0 auto;
+	margin-top: 100px;
+}
+
+#msg{
+	color: red;
+	padding: 5px 0;
+	font-size: 25px;
+}

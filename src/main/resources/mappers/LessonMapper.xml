@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE mapper   
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.hxz.stu.dao.manager.LessonMapper">
+
+
+	<select id="findById" parameterType="int"
+		resultType="com.hxz.stu.domain.manager.Lesson">
+		SELECT * FROM lesson where lid = #{lid}
+	</select>
+
+	<select id="list" parameterType="com.hxz.common.page.PageParam"
+		resultType="com.hxz.stu.domain.manager.Lesson">
+		SELECT * FROM lesson limit #{offset}, #{limit}
+	</select>
+
+	<select id="count" resultType="int">
+		SELECT count(*) FROM lesson
+	</select>
+
+	<insert id="save" parameterType="com.hxz.stu.domain.manager.Lesson">
+		insert into lesson values
+		(#{lid}, #{lname}, #{tid}, #{tname}, #{ltime}, #{lscore})
+	</insert>
+
+	<update id="update" parameterType="com.hxz.stu.domain.manager.Lesson">
+		update lesson set lname =
+		#{lname},tid = #{tid},tname = #{tname},ltime = #{ltime}, lscore =
+		#{lscore} where lid = #{lid}
+	</update>
+
+	<delete id="delete" parameterType="int">
+		delete from lesson where lid =
+		#{lid};
+	</delete>
+
+	<delete id="mdelete" parameterType="java.util.ArrayList">
+		delete from lesson where lid in
+		<foreach item="lid" index="index" collection="array" open="("
+			separator="," close=")">
+			#{lid}
+		</foreach>
+	</delete>
+
+</mapper>

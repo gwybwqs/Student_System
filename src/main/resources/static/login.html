@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>学生信息管理系统 —— 登录</title>
+<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/login.css" />
+</head>
+<body>
+
+	<div class="login container">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">登录</h3>
+			</div>
+			<div class="panel-body">
+				<form id="login-form">
+					<div class="form-group">
+						<label for="username">用户名：</label> <input type="text"
+							class="form-control" id="username" name="username"
+							placeholder="请输入用户名">
+					</div>
+					<div class="form-group">
+						<label for="password">密码：</label> <input type="password"
+							class="form-control" id="password" name="password"
+							placeholder="请输入密码">
+					</div>
+					<div id ="selectstatus">
+						<label for="status">您的身份是：</label>
+						<td>
+							<input type="radio" name="status1" id="status1"	value="学生">学生 
+							<input type="radio" name="status1" id="status2" value="老师">老师
+							<input type="radio" name="status1" id="status3" value="管理者">管理者</td>
+
+					</div>
+					<div id="msg"></div>
+					<button id="login-submit" type="button" class="btn btn-success">登录</button>
+					<button type="reset" class="btn btn-info">重置</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	<script src="lib/jquery/jquery.min.js"></script>
+	<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/login.js"></script>
+</body>
+</html>

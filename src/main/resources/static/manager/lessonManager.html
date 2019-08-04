@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>课程信息管理系统——后台管理</title>
+	<link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="../lib/bootstrap-table/css/bootstrap-table.min.css">
+	<link rel="stylesheet" href="../lib/jquery-confirm/css/jquery-confirm.min.css">
+	<link rel="stylesheet" href="../css/manager/lesson.css"/>
+</head>
+<body>
+	<div class="row top">
+		<div class="logo pull-left">
+			<img src="../images/lesson.png" alt=""/>
+		</div>
+		<div class="info pull-right">
+			<span class="info-username" id="username"></span>
+			<span class="info-username"> | </span>
+			<a href="/Log/logout">退出</a>
+		</div>
+	</div>
+	<div class="panel">
+		<div class="panel-menu">
+			<ul>
+				<li id = "student">
+					<a href="">学生管理</a>
+				</li>
+				<li id = "teacher">
+					<a href="">老师管理</a>
+				</li>
+				<li class="active" id = "lesson">
+					<a href="">课程管理</a>
+				</li>
+			</ul>
+		</div>
+		<div class="panel-content">
+			<div id="toolbar">
+				<a data-toggle="modal" data-target="#addModal" class="btn btn-success">添加</a>
+				<a id="mdel" class="btn btn-danger">删除</a>
+			</div>
+			<table id="lesson-table"></table>
+		</div>
+	</div>
+
+	
+<div id="addModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">添加课程信息</h4>
+      </div>
+      <div class="modal-body">
+        <form id="form-add">
+       		<div class="form-group">
+            	<label for="lid" class="control-label">ID:</label>
+            	<input type="text" class="form-control" name="lid">
+          	</div>
+        	<div class="form-group">
+            	<label for="name" class="control-label">名称:</label>
+            	<input type="text" class="form-control" name="lname">
+          	</div>
+          	
+          		<div class="form-group">
+            	<label for="tid" class="control-label">老师编号:</label>
+            	<input type="text" class="form-control" name="tid">
+          	</div>
+        	<div class="form-group">
+            	<label for="tname" class="control-label">老师名称:</label>
+            	<input type="text" class="form-control" name="tname">
+          	</div>
+          	<div class="form-group">
+            	<label for="gender" class="control-label">学时:</label>
+            	<input type="text" class="form-control" name="ltime">
+          	</div>
+          	
+          	<div class="form-group">
+            	<label for="gender" class="control-label">学分:</label>
+            	<input type="text" class="form-control" name="lscore">
+          	</div>
+         
+		</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button id="btn-add" type="button" class="btn btn-primary">添加</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">修改课程信息</h4>
+      </div>
+      <div class="modal-body">
+        <form id="form-update">
+        	<input type="hidden" name="lid" id="lid">
+        	<div class="form-group">
+            	<label for="name" class="control-label">名称:</label>
+            	<input type="text" class="form-control" id="lname" name="lname">
+          	</div>
+          	<div class="form-group">
+            	<label for="tid" class="control-label">老师编号:</label>
+            	<input type="text" class="form-control" id="tid" name="tid">
+          	</div>
+          	<div class="form-group">
+            	<label for="tname" class="control-label">老师名称:</label>
+            	<input type="text" class="form-control" id="tname" name="tname">
+          	</div>
+          	<div class="form-group">
+            	<label for="gender" class="control-label">学时:</label>
+            	<input type="text" class="form-control" id="ltime" name="ltime">
+          	</div>
+          	
+          	<div class="form-group">
+            	<label for="gender" class="control-label">学分:</label>
+            	<input type="text" class="form-control" id="lscore" name="lscore">
+          	</div>
+		</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button id="btn-update" type="button" class="btn btn-primary">更新</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<script src="../lib/jquery/jquery.min.js"></script>
+<script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="../lib/bootstrap-table/js/bootstrap-table.min.js"></script>
+<script src="../lib/bootstrap-table/js/bootstrap-table-zh-CN.min.js"></script>
+<script src="../lib/jquery-confirm/js/jquery-confirm.min.js"></script>
+<script src="../js/manager/lessonManager.js"></script>
+</body>
+</html>
